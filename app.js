@@ -29,7 +29,7 @@ var uiController = (function () {
       } else {
         list = ".expenses__list";
         html =
-          '<div class="item clearfix" id="expense-%d%"><div class="item__description">$$DESCRIPTION$$</div><div class="right clearfix"><div class="item__value">$$VALUE$$</div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
+          '<div class="item clearfix" id="expense-%id%"><div class="item__description">$$DESCRIPTION$$</div><div class="right clearfix"><div class="item__value">$$VALUE$$</div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
       }
       // Тэр html дотроо орлого зарлагын утгуудыг REPlACE ашиглаж өөрчилж өгнө
       html = html.replace("%id%", item.id);
@@ -79,6 +79,7 @@ var financeController = (function () {
         item = new Expense(id, desc, val);
       }
       data.items[type].push(item);
+      return item;
     },
     seeData: function () {
       return data;
